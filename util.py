@@ -7,7 +7,7 @@ class Default:
     magnetHeight = 3
     magnetDiameterTol = 0.16
     magnetHeightTol = 0.0
-    jointHeight = 5.2
+    jointHeight = 5.4
     linewidthThin = 3
     lineWidthDefault = 4
     lineWidthBold = 5

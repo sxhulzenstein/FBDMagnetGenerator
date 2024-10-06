@@ -15,13 +15,13 @@ def makeRodBase(p0: Vector, p1: Vector) -> Workplane:
     
     plane = Plane( origin = p0, 
                    normal = n, xDir = ( -n.y, n.x, 0 ) )
-    rod = crossSection( Workplane(plane), Default.lineWidthBold ).extrude( length )
+    rod = crossSection( Workplane(plane), Default.lineWidthBold * 1.5 ).extrude( length )
     return rod 
 
 def addText( start: Vector, end: Vector, rod: Workplane ) -> Workplane: 
     plane = Plane( origin = ( start + end ) / 2 + Vector( 0, 0, Default.jointHeight / 2 ), normal = Vector( 0, 0, 1 ), xDir = ( end -  start ).normalized() )
     length = ( end - start ).Length
-    text = Workplane( plane ).text( f"{length:.0f}", 4.5, -1, font="Courier New", kind="bold" )
+    text = Workplane( plane ).text( f"{length:.0f}", 7, -1, font="Arial", kind="bold" )
     return rod - text
 
 
@@ -52,7 +52,7 @@ def polyLineRod( points: list[ Vector ] ) -> Workplane:
             path = (Workplane("XY")
                  .spline( listOfXYTuple=p, tangents = t))
             plane = Plane( origin = p1 + 1 * Default.jointDiameter * v10, normal = -v10, xDir = ( v10.y, -v10.x, 0 ) )
-            rod += crossSection(Workplane(plane), Default.lineWidthBold).sweep(path)
+            rod += crossSection(Workplane(plane), Default.lineWidthBold * 1.5 ).sweep(path)
     
     for point in points:
         rod = makeJoint( point, rod )

@@ -11,7 +11,8 @@ if __name__ == "__main__":
     with tkinter.filedialog.askopenfile( title = "Select a configuration file", mode="r", filetypes = fileTypes ) as file:
         content: dict = loads( file.read() )
         directory: Path = Path( file.name ).parent.joinpath("parts")
-        directory.mkdir() 
+        if not directory.exists():
+            directory.mkdir() 
 
     objectCallerBinding: dict[ str, callable ] = {
         "rod" : generateRod,
@@ -24,3 +25,4 @@ if __name__ == "__main__":
         typeOfObject: str = object[ 0 ]
         objectSpecification: dict = object[ 1 ]
         objectCallerBinding[ typeOfObject ]( objectSpecification, str ( directory ) )
+        

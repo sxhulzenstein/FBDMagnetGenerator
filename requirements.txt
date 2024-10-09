@@ -1,4 +1,4 @@
 cadquery
 numpy==1.26.0
 nlopt==2.7.1
-tkinter
+tk

@@ -70,7 +70,8 @@ Now you are almost ready to go. Now, the most important step is to define the ob
         [ "support", { "type" : "loose" } ],
         [ "support", { "type" : "fixed" } ],
         [ "joint", { "type" : "cap", "name" : "cap1" } ],
-        [ "joint", { "type" : "space", "name" : "space1" } ]
+        [ "joint", { "type" : "space", "name" : "space1" } ],
+        [ "beam", { "points": [ [ 0, 0 ], [ 20, 0 ], [ 60, 0 ] ], "name": "beam_20_60" } ]
     ]
 }
 ```

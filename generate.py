@@ -5,6 +5,7 @@ from joint import generateJoint
 from support import generateSupport
 from pathlib import Path
 from spring import generateSpring
+from beam import generateBeam
 
 if __name__ == "__main__":
     fileTypes: tuple[ tuple[ str, str], ... ] = ( ( "JSON-File", ".json" ), ( "Text-File", ".txt" ) )
@@ -18,7 +19,8 @@ if __name__ == "__main__":
         "rod" : generateRod,
         "support" : generateSupport,
         "joint" : generateJoint,
-        "spring" : generateSpring
+        "spring" : generateSpring,
+        "beam": generateBeam
     }
 
     for object in content[ "objects" ]:
